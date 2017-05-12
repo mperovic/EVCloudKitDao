@@ -1126,7 +1126,7 @@ open class EVCloudKitDao {
                 EVLog("Error: could not reset badge: \n\(error)")
             }
             self.handleCallback(error as Error?, errorHandler: handleError, completionHandler: {
-                #if os(iOS)
+				#if os(iOS) || os(tvOS)
                     UIApplication.shared.applicationIconBadgeNumber = count
                 #elseif os(OSX)
                     //TODO: Set badge?
